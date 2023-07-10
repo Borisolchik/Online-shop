@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="container">
     <a class="logo">
-      <img src="assets/images/logo.png" alt="Logo">
+      <img src="assets/images/logo-green.png" alt="Logo">
     </a>
     <div class="footer-block footer-menu">
       <div class="footer-head">МЕНЮ</div>
@@ -30,17 +30,8 @@
 
       <nav class="footer-items">
         <ul>
-          <li>
-            <a>Кактусы</a>
-          </li>
-          <li>
-            <a>Кактусы</a>
-          </li>
-          <li>
-            <a>Кактусы</a>
-          </li>
-          <li>
-            <a>Кактусы</a>
+          <li *ngFor="let category of categories">
+            <a>{{category.name}}</a>
           </li>
         </ul>
       </nav>

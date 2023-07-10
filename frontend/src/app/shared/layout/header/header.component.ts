@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {CategoryService} from "../../services/category.service";
+import {Component, Input, OnInit} from '@angular/core';
 import {CategoryType} from "../../../../types/category.type";
 
 @Component({
@@ -9,14 +8,11 @@ import {CategoryType} from "../../../../types/category.type";
 })
 export class HeaderComponent implements OnInit {
 
-  categories: CategoryType[] = [];
-  constructor(private categoryService: CategoryService) {
+  @Input() categories: CategoryType[] = [];
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.categoryService.getCategories()
-      .subscribe((categories: CategoryType[]) => {
-        this.categories = categories;
-      })
+
   }
 }
