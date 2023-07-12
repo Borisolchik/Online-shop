@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
+import {AuthService} from "../../../core/auth/auth.service";
+import {LoginResponseType} from "../../../../types/login-response.type";
+import {DefaultResponseType} from "../../../../types/default-response.type";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-login',
@@ -14,13 +18,28 @@ export class LoginComponent implements OnInit {
     rememberMe: [false]
   })
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
   }
 
-  login() {
+  login(): void {
+   if (this.loginForm.valid && this.loginForm.value.email && this.loginForm.value.password) {
+     this.authService.login(this.loginForm.value.email, this.loginForm.value.password, !!this.loginForm.value.rememberMe)
+       .subscribe({
+         next: (data: LoginResponseType | DefaultResponseType) => {
 
+         },
+         error: (errorResponse: HttpErrorResponse) => {
+           if (errorResponse.error && errorResponse.message) {
+
+           } else {
+
+           }
+         }
+       })
+   }
   }
 }
