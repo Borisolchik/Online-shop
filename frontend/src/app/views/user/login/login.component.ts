@@ -5,6 +5,7 @@ import {LoginResponseType} from "../../../../types/login-response.type";
 import {DefaultResponseType} from "../../../../types/default-response.type";
 import {HttpErrorResponse} from "@angular/common/http";
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
-              private _snackBar: MatSnackBar) {
+              private _snackBar: MatSnackBar,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -44,6 +46,10 @@ export class LoginComponent implements OnInit {
               this._snackBar.open(error);
               throw new Error(error);
             }
+
+            //set tokens
+            this._snackBar.open('Вы успешно авторизовались');
+            this.router.navigate(['/']);
           },
           error: (errorResponse: HttpErrorResponse) => {
             if (errorResponse.error && errorResponse.error.message) {
