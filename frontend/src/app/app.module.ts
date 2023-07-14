@@ -10,6 +10,7 @@ import {MainComponent} from './views/main/main.component';
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from "@angular/materia
     BrowserModule,
     AppRoutingModule,
     MatSnackBarModule,
+    MatMenuModule,
     HttpClientModule,
     BrowserAnimationsModule
   ],
