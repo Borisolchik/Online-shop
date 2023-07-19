@@ -12,6 +12,6 @@ import {RouterModule} from "@angular/router";
     CommonModule,
     RouterModule
   ],
-  exports: [PasswordRepeatDirective]
+  exports: [PasswordRepeatDirective, ProductCardComponent]
 })
 export class SharedModule { }
