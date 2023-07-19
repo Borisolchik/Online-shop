@@ -102,3 +102,15 @@
     }
   }
 }
+
+.best-products {
+  padding-top: 120px;
+  padding-bottom: 130px;
+
+  .carousel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+}
