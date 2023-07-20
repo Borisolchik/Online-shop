@@ -52,7 +52,7 @@
     </div>
 
     <div class="carousel-items">
-      <product-card></product-card>
+      <product-card [product]="product" *ngFor="let product of products"></product-card>
     </div>
   </div>
 </section>
